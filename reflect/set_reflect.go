@@ -1,12 +1,12 @@
 /**
-*     File: 02reflect.go
+*     File:		set_reflect.go
 *	 Brief: 通过反射修改结构体字段值
 *	 Descr: 通过判断反射返回类型，元素是否能被修改，是否存在等成功修改相应等字段值
 *
 *   Author: Hong Li, leehongitrd@163.com
 *   Github: https://github.com/researchlab
 *  Created: 2016-02-17 13时06分33秒
-* Modified: 2016-02-17 13时06分33秒
+* Modified:	2016-02-18 16时10分03秒
 **/
 
 package main

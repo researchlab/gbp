@@ -1,12 +1,12 @@
 /**
-*     File: con01.go
+*     File:		concurrency_sync_mutex.go
 *	 Brief: 并发执行的数据同步问题
 *	 Descr: 通过加锁Mutex.Clock解决并发过程中的数据同步问题
 *
 *   Author: Hong Li, leehongitrd@163.com
 *   Github: https://github.com/researchlab
 *  Created: 2016-02-18 01时36分37秒
-* Modified: 2016-02-18 01时36分37秒
+* Modified:	2016-02-18 16时07分05秒
 **/
 
 package main

@@ -1,12 +1,12 @@
 /**
-*     File: 03reflect.go
+*     File:		func_reflect.go
 *	 Brief: 通过反射“动态”调用方法
 *	 Descr:
 *
 *   Author: Hong Li, leehongitrd@163.com
 *   Github: https://github.com/researchlab
 *  Created: 2016-02-17 13时08分23秒
-* Modified: 2016-02-17 13时08分23秒
+* Modified:	2016-02-18 16时10分06秒
 **/
 
 package main

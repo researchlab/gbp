@@ -1,3 +1,14 @@
+/**
+*     File: select_timeout.go
+*	 Brief: 并发超时处理
+*	 Descr:
+*
+*   Author: Hong Li, leehongitrd@163.com
+*   Github: https://github.com/researchlab
+*  Created: 2016-02-18 16时10分24秒
+* Modified: 2016-02-18 16时10分24秒
+**/
+
 package main
 
 import (
