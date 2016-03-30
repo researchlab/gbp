@@ -2,7 +2,10 @@ package base
 
 import (
 	"encoding/binary"
+	"errors"
+	"fmt"
 	"math"
+	"reflect"
 	"strconv"
 )
 
@@ -55,4 +58,47 @@ func Precision(f float64, prec int, round bool) float64 {
 		return math.Trunc((f+0.5/pow10_n)*pow10_n) / pow10_n
 	}
 	return math.Trunc((f)*pow10_n) / pow10_n
+}
+
+func Struct2Map(obj interface{}) map[string]interface{} {
+	t := reflect.TypeOf(obj)
+	v := reflect.ValueOf(obj)
+
+	var data = make(map[string]interface{})
+	for i := 0; i < t.NumField(); i++ {
+		data[t.Field(i).Name] = v.Field(i).Interface()
+	}
+
+	return data
+}
+
+func Map2Struct(obj map[string]interface{}, data interface{}) (interface{}, error) {
+	for k, v := range obj {
+		err := setField(data, k, v)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return data, nil
+}
+
+func setField(obj interface{}, name string, value interface{}) error {
+	structVal := reflect.ValueOf(obj).Elem()
+	structFieldVal := structVal.FieldByName(name)
+
+	if !structFieldVal.IsValid() {
+		return fmt.Errorf("No such field: %s in obj", name)
+	}
+
+	if !structFieldVal.CanSet() {
+		return fmt.Errorf("Cannot set %s field value", name)
+	}
+
+	structFieldType := structFieldVal.Type()
+	val := reflect.ValueOf(value)
+	if structFieldType != val.Type() {
+		return errors.New("provided value type didn't match obj field type")
+	}
+	structFieldVal.Set(val)
+	return nil
 }
