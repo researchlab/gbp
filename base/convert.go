@@ -17,27 +17,27 @@ import (
 //strconv.Atoi(s)
 //strconv.ParseInt(s,10,0)
 
-//bytes to float64
-func bytesToFloat64(bytes []byte) float64 {
+//BytesToFloat64 bytes to float64
+func BytesToFloat64(bytes []byte) float64 {
 	bits := binary.LittleEndian.Uint64(bytes)
 	return math.Float64frombits(bits)
 }
 
-//float64 to bytes; []uint8
-func float64ToBytes(input float64) []byte {
+//Float64ToBytes float64 to bytes; []uint8
+func Float64ToBytes(input float64) []byte {
 	bits := math.Float64bits(input)
 	bytes := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytes, bits)
 	return bytes
 }
 
-//float to str 支持指定精度
+//FloatToStr float to str 支持指定精度
 func FloatToStr(num float64, floatPartLen int) string {
 	return strconv.FormatFloat(num, 'f', floatPartLen, 64)
 }
 
-//strToFloat64 支持指定精度
-func strToFloat64(str string, len int) float64 {
+//StrToFloat64 支持指定精度
+func StrToFloat64(str string, len int) float64 {
 	lenstr := "%." + strconv.Itoa(len) + "f"
 	value, _ := strconv.ParseFloat(str, 64)
 	nstr := fmt.Sprintf(lenstr, value) //指定精度
@@ -45,21 +45,22 @@ func strToFloat64(str string, len int) float64 {
 	return val
 }
 
-//strToFloat64 支持指定精度， 支持四舍五入
-func strToFloat64round(str string, prec int, round bool) float64 {
+//StrToFloat64round 支持指定精度， 支持四舍五入
+func StrToFloat64round(str string, prec int, round bool) float64 {
 	f, _ := strconv.ParseFloat(str, 64)
-	return Precision(f, prec, round)
+	return FloatPrecision(f, prec, round)
 }
 
-// float指定精度; round为true时, 表示支持四舍五入
-func Precision(f float64, prec int, round bool) float64 {
-	pow10_n := math.Pow10(prec)
+// FloatPrecision float指定精度; round为true时, 表示支持四舍五入
+func FloatPrecision(f float64, prec int, round bool) float64 {
+	pow10N := math.Pow10(prec)
 	if round {
-		return math.Trunc((f+0.5/pow10_n)*pow10_n) / pow10_n
+		return math.Trunc((f+0.5/pow10N)*pow10N) / pow10N
 	}
-	return math.Trunc((f)*pow10_n) / pow10_n
+	return math.Trunc((f)*pow10N) / pow10N
 }
 
+//Struct2Map struct convert to Map
 func Struct2Map(obj interface{}) map[string]interface{} {
 	t := reflect.TypeOf(obj)
 	v := reflect.ValueOf(obj)
@@ -72,6 +73,7 @@ func Struct2Map(obj interface{}) map[string]interface{} {
 	return data
 }
 
+//Map2Struct map to struct
 func Map2Struct(obj map[string]interface{}, data interface{}) (interface{}, error) {
 	for k, v := range obj {
 		err := setField(data, k, v)
