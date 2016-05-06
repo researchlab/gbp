@@ -1,8 +1,8 @@
 package examples
 
 import (
+	"base"
 	"fmt"
-	"go-learning/base"
 )
 
 func MultiMapMgr() {
