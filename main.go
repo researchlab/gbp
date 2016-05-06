@@ -1,8 +1,8 @@
 package main
 
 import (
-	"examples"
 	"fmt"
+	"github.com/go-learning/examples"
 )
 
 func main() {
