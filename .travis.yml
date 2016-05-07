@@ -2,14 +2,3 @@ language: go
 go:
     - 1.4
 
-branches:
-  only:
-    - master 
-before_script:
-  - git config --global user.email "inforoom@126.com"
-  - git config --global user.name "researchlab"
-  - git remote rm origin
-  - git remote add origin https://user:${GH_TOKEN}@github.com/user/repo.git
-env:
-  global:
-    secure: encrypted-github-token
