@@ -9,7 +9,7 @@
 * Modified: 2016-02-19 09时13分45秒
 **/
 
-package main
+package myweb
 
 import (
 
@@ -35,7 +35,7 @@ func light(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("肚子饿了"))
 }
 
-func main() {
+func HttpSinglehostReqInit() {
 	single := SingleHost(http.HandlerFunc(light), "localhost:8080")
 	http.ListenAndServe(":8080", single)
 }

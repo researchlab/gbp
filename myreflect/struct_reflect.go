@@ -9,7 +9,7 @@
 * Modified:	2016-02-18 16时09分57秒
 **/
 
-package main
+package myreflect
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ func (u User) Hello() {
 	fmt.Println("Hello,Mike")
 }
 
-func main() {
+func StructReflectInit() {
 	u := User{1, "Mike", 11}
 	Info(u)
 }

@@ -9,7 +9,7 @@
 * Modified:	2016-02-18 16时10分06秒
 **/
 
-package main
+package myreflect
 
 import (
 	"fmt"
@@ -27,7 +27,7 @@ func (u User) Hello(m User) (int, string) {
 	return m.Age + u.Age, u.Name
 }
 
-func main() {
+func FuncReflectInit() {
 	u := User{1, "Mike", 11}
 	GetInfo(u)
 }

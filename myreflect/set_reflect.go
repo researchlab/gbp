@@ -9,7 +9,7 @@
 * Modified:	2016-02-18 16时10分03秒
 **/
 
-package main
+package myreflect
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ type User struct {
 	Age  int
 }
 
-func main() {
+func SetReflectInit() {
 	u := User{1, "Mike", 11}
 	SetInfo(&u)
 	fmt.Println(u)

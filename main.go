@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/researchlab/go-learning/examples"
+	"github.com/researchlab/golearning/examples"
 )
 
 func main() {

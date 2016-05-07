@@ -9,7 +9,7 @@
 * Modified: 2016-02-18 16时10分24秒
 **/
 
-package main
+package concurrency
 
 import (
 	"errors"
@@ -19,7 +19,7 @@ import (
 	"time"
 )
 
-func main() {
+func SelectTimeoutInit() {
 	url := "http://www.grdtechs.com/"
 	content, ok := getHttpRes(url)
 	fmt.Println("content: ", content, " status:", ok)

@@ -9,7 +9,7 @@
 * Modified:	2016-02-18 16时07分05秒
 **/
 
-package main
+package concurrency
 
 import (
 	"fmt"
@@ -39,7 +39,7 @@ func sell_tickets(wg *sync.WaitGroup, i int) {
 	wg.Done()
 }
 
-func main() {
+func ConcurrencySyncMutexInit() {
 
 	// 设置真正意义上的并发
 	runtime.GOMAXPROCS(runtime.NumCPU())
