@@ -2,11 +2,14 @@ language: go
 go:
     - 1.4
 
-## Update composer and run the appropriate composer command
+branches:
+  only:
+    - master 
 before_script:
-  - composer self-update -q
-  - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
-  - if [ -z "$dependencies" ]; then composer install; fi;
-  - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
-  - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
-  - composer show -i
+  - git config --global user.email "inforoom@126.com"
+  - git config --global user.name "researchlab"
+  - git remote rm origin
+  - git remote add origin https://user:${GH_TOKEN}@github.com/user/repo.git
+env:
+  global:
+    secure: encrypted-github-token
