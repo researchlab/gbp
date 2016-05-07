@@ -16,18 +16,18 @@ import (
 	"reflect"
 )
 
-type User struct {
+type TUser struct {
 	Id   int
 	Name string
 	Age  int
 }
 
-func (u User) Hello() {
+func (u TUser) Hello() {
 	fmt.Println("Hello,Mike")
 }
 
 func StructReflectInit() {
-	u := User{1, "Mike", 11}
+	u := TUser{1, "Mike", 11}
 	Info(u)
 }
 

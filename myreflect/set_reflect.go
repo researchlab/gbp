@@ -16,14 +16,14 @@ import (
 	"reflect"
 )
 
-type User struct {
+type SUser struct {
 	Id   int
 	Name string
 	Age  int
 }
 
 func SetReflectInit() {
-	u := User{1, "Mike", 11}
+	u := SUser{1, "Mike", 11}
 	SetInfo(&u)
 	fmt.Println(u)
 }

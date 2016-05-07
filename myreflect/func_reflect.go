@@ -16,24 +16,24 @@ import (
 	"reflect"
 )
 
-type User struct {
+type FUser struct {
 	Id   int
 	Name string
 	Age  int
 }
 
-func (u User) Hello(m User) (int, string) {
+func (u FUser) Hello(m FUser) (int, string) {
 	fmt.Println("Hello", m.Name, ", I'm ", u.Name)
 	return m.Age + u.Age, u.Name
 }
 
 func FuncReflectInit() {
-	u := User{1, "Mike", 11}
+	u := FUser{1, "Mike", 11}
 	GetInfo(u)
 }
 
 func GetInfo(u interface{}) {
-	m := User{2, "Json", 12}
+	m := FUser{2, "Json", 12}
 
 	v := reflect.ValueOf(u)
 
