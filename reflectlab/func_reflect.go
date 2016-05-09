@@ -9,7 +9,7 @@
 * Modified:	2016-02-18 16时10分06秒
 **/
 
-package myreflect
+package reflectlab
 
 import (
 	"fmt"
