@@ -8,10 +8,8 @@ go:
 
 before_install:
     - go get github.com/modocache/gover
-    - go get github.com/researchlab/golearning/...
 
 script:
-    - go list ./..
     # Vet examines Go source code and reports suspicious construct
     - go vet $(go list ./...) 
     # Run the unit tests suite
