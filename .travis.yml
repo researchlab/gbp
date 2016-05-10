@@ -23,3 +23,8 @@ after_success:
     # Send coverage reports to Codecov
     - bash <(curl -s https://codecov.io/bash) -f coverprofile.txt
 
+notificaitons:
+    email:
+        recipients: lihongitchina@gmail.com 
+        on_success: change
+        on_failure: always
