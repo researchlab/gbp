@@ -8,6 +8,7 @@ go:
 
 before_install:
     - go get github.com/modocache/gover
+    - go get github.com/researchlab/golearning/...
 
 script:
     - go list ./..
