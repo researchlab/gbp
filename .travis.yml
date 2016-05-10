@@ -8,9 +8,9 @@ go:
 
 before_install:
     - go get github.com/modocache/gover
-    - go get github.com/vendor/package/...
 
 script:
+    - go list ./..
     # Vet examines Go source code and reports suspicious construct
     - go vet $(go list ./...) 
     # Run the unit tests suite
