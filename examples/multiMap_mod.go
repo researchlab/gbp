@@ -15,8 +15,8 @@ func MultiMapInit() *base.MultiMap {
 	MMap := &base.MultiMap{
 		Data: make(map[interface{}]interface{}, 0),
 	}
-	keys := []string{"1", "1", "5", "7", "9", "0", "2", "4", "6", "8"}
-	vals := []string{"0", "5", "2", "9", "8", "1", "3", "7", "4", "6"}
+	keys := []string{"11", "120", "250", "27", "90", "0", "2", "4", "6", "8"}
+	vals := []string{"0", "15", "12", "9", "80", "210", "31", "17", "400", "6"}
 	for i := 0; i < 10; i++ {
 		ok, err := MMap.Put(keys[i], vals[i])
 		fmt.Println(ok, ":", err)
