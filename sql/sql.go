@@ -7,9 +7,11 @@ import (
 )
 
 type DbWorker struct {
-	Dsn      string
-	Db       *sql.DB
-	UserInfo userTB
+	Dsn        string
+	Db         *sql.DB
+	UserInfo   userTB
+	InsertStmt *sql.Stmt
+	QueryStmt  *sql.Stmt
 }
 type userTB struct {
 	Id   int
@@ -28,12 +30,29 @@ func main() {
 		return
 	}
 	defer dbw.Db.Close()
-	dbw.insertData()
-	dbw.QueryData()
+	if err, ok := dbw.PreWork(); ok {
+		dbw.insertData()
+		dbw.QueryData()
+	} else {
+		panic(err)
+		return
+	}
+}
+
+func (dbw *DbWorker) PreWork() (error, bool) {
+	var err error
+	if dbw.InsertStmt, err = dbw.Db.Prepare(`INSERT INTO user (name, age) VALUES (?, ?)`); nil != err {
+		return err, false
+	}
+
+	if dbw.QueryStmt, err = dbw.Db.Prepare(`SELECT * From user where age >= ? AND age < ?`); nil != err {
+		return err, false
+	}
+	return nil, true
 }
 
 func (dbw *DbWorker) insertData() {
-	ret, err := dbw.Db.Exec(`INSERT INTO user (name, age) VALUES ("xys", 23)`)
+	ret, err := dbw.InsertStmt.Exec("xys", 23)
 	if err != nil {
 		fmt.Printf("insert data error: %v\n", err)
 		return
@@ -51,7 +70,7 @@ func (dbw *DbWorker) QueryDataPre() {
 }
 func (dbw *DbWorker) QueryData() {
 	dbw.QueryDataPre()
-	rows, err := dbw.Db.Query(`SELECT * From user where age >= 20 AND age < 30`)
+	rows, err := dbw.QueryStmt.Query(20, 30)
 	defer rows.Close()
 	if err != nil {
 		fmt.Printf("insert data error: %v\n", err)
