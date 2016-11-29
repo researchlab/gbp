@@ -50,14 +50,14 @@ func (dbw *DbWorker) insertData() {
 	}
 }
 
-func (dbw *DbWorker) QueryDataPre() {
+func (dbw *DbWorker) queryDataPre() {
 	dbw.UserInfo = userTB{}
 }
 func (dbw *DbWorker) queryData() {
 	stmt, _ := dbw.Db.Prepare(`SELECT * From user where age >= ? AND age < ?`)
 	defer stmt.Close()
 
-	dbw.QueryDataPre()
+	dbw.queryDataPre()
 
 	rows, err := stmt.Query(20, 30)
 	defer rows.Close()
