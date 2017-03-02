@@ -1,5 +1,6 @@
 # tire 
 
+```bash
 ➜  trie git:(master) ✗ go test -v
 === RUN   TestFilter
 --- PASS: TestFilter (0.00s)
@@ -25,4 +26,4 @@
 	trie_test.go:142: 测试通过, 期望得到:中国商人   实际得到:中国商人
 PASS
 ok  	github.com/researchlab/experiments/detection/trie	0.002s
-
+```
