@@ -2,7 +2,8 @@ package examples
 
 import (
 	"fmt"
-	"github.com/researchlab/golearning/base"
+
+	"github.com/researchlab/experiments/base"
 )
 
 func MultiMapMgr() {
