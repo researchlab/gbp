@@ -1,4 +1,3 @@
-TEXT main.main(SB) /Users/lihong/workbench/dev/src/github.com/researchlab/experiments/channel/close/channel_close.go
   channel_close.go:5	0x1093e60		65488b0c2530000000	MOVQ GS:0x30, CX			
   channel_close.go:5	0x1093e69		488d4424f8		LEAQ -0x8(SP), AX			
   channel_close.go:5	0x1093e6e		483b4110		CMPQ 0x10(CX), AX			
