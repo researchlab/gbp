@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 func main() {
 	in := make(chan int, 2)
 	in <- 1
@@ -10,4 +12,7 @@ func main() {
 	for {
 		break
 	}
+
+	_, ok := <-in
+	log.Printf("ok:%v", ok)
 }
