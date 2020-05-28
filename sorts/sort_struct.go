@@ -1,4 +1,4 @@
-package examples
+package sorts
 
 //对自定义类型进行排序的解决方法
 
