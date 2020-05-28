@@ -7,3 +7,20 @@
 Code Snippets by learning golang dev.
 
 
+```
+├── base
+├── channel
+├── concurrency
+├── consistent_hash
+├── detection
+├── gin_test
+├── news_spider
+├── personal_share
+├── postform
+├── redispool
+├── reflectlab
+├── setcookie
+├── sorts  #自定义排序实践
+├── sql
+└── weblab
+```
