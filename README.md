@@ -1,6 +1,5 @@
 # Golang Best Practices (GBP™)  
 
-[![Build Status](https://travis-ci.org/researchlab/gbp.svg?branch=master)](https://travis-ci.org/researchlab/gbp)
 [![Software License](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](https://github.com/researchlab/gbp/blob/master/LICENSE.md)
 
 Best Golang Practices (GBP™) along with the detailed samples.
