@@ -1,14 +1,12 @@
 # Golang Best Practices (GBP™)  
 
-[![Build Status](https://travis-ci.org/researchlab/golearning.svg?branch=master)](https://travis-ci.org/researchlab/golearning)
-[![Software License](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](https://github.com/researchlab/golearning/blob/master/LICENSE.md)
-[![codecov](https://codecov.io/gh/researchlab/golearning/branch/master/graph/badge.svg)](https://codecov.io/gh/researchlab/golearning)
+[![Build Status](https://travis-ci.org/researchlab/gbp.svg?branch=master)](https://travis-ci.org/researchlab/gbp)
+[![Software License](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](https://github.com/researchlab/gbp/blob/master/LICENSE.md)
 
-Code Snippets by learning golang dev.
+Best Golang Practices (GBP™) along with the detailed samples.
 
 
 ```
-├── base
 ├── channel
 ├── concurrency
 ├── consistent_hash
