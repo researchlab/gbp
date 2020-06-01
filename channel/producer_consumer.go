@@ -1,7 +1,7 @@
 package channel
 
 const (
-	N = 100000
+	N = 1
 )
 
 func Producer(out chan<- int) {
