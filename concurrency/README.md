@@ -1,5 +1,38 @@
 # golang concurrency 
 
+
+result
+```
+➜  go run main.go
+======concurrency sync mutex
+id: 4  ticket: 9
+id: 4  ticket: 8
+id: 4  ticket: 7
+id: 1  ticket: 6
+id: 2  ticket: 5
+id: 3  ticket: 4
+id: 0  ticket: 3
+id: 4  ticket: 2
+id: 1  ticket: 1
+id: 2  ticket: 0
+0 done
+======concurrency no lock
+生成3张票，卖出2张，至少剩余一张
+Pusher: 0  生成票: 0  成功
+Pusher: 1  生成票: 1  成功
+Pusher: 2  生成票: 2  成功
+Poper: 0  购票: {0 1}  成功
+Poper: 1  购票: {1 1}  成功
+剩余: 1  票: [{2 1}]
+生成2张票，卖出3张，至少卖出失败一张
+Poper: 2  购票: 失败
+Pusher: 0  生成票: 0  成功
+Poper: 0  购票: 失败
+Poper: 1  购票: {0 1}  成功
+Pusher: 1  生成票: 1  成功
+剩余: 1  票: [{1 1}]
+```
+
 select timeout
 ```
 errChan := make(chan error)
