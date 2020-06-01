@@ -29,10 +29,29 @@ func BenchmarkNoBufferChan(b *testing.B) {
 	}
 }
 
-func BenchmarkBufferChan(b *testing.B) {
+func BenchmarkBufferChan100(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		bufLen := 100
-		in, out := make(chan int, bufLen), make(chan int, bufLen)
+		in, out := make(chan int, 100), make(chan int, 100)
+		producerconsumer(in, out)
+	}
+}
+func BenchmarkBufferChan200(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		in, out := make(chan int, 200), make(chan int, 200)
+		producerconsumer(in, out)
+	}
+}
+
+func BenchmarkBufferChan500(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		in, out := make(chan int, 500), make(chan int, 500)
+		producerconsumer(in, out)
+	}
+}
+
+func BenchmarkBufferChan1000(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		in, out := make(chan int, 1000), make(chan int, 1000)
 		producerconsumer(in, out)
 	}
 }
