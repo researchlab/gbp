@@ -1,27 +1,16 @@
 language: go
 
 sudo: false
+email: false
 
 go:
-    - 1.4
-    - tip
-
-before_install:
-    - go get github.com/modocache/gover
+  - 1.13.x
+  - 1.14.x
+  - tip
 
 script:
-    # Vet examines Go source code and reports suspicious construct
-    - go vet $(go list ./...) 
     # Run the unit tests suite
-    - go test -v ./...
-    # Collect coverage reports
-    - go list -f '{{if len .TestGoFiles}}"go test -coverprofile={{.Dir}}/.coverprofile {{.ImportPath}}"{{end}}' ./... | xargs -i sh -c {}
-    # Merge coverage reports
-    - gover . coverprofile.txt
-
-after_success:
-    # Send coverage reports to Codecov
-    - bash <(curl -s https://codecov.io/bash) -f coverprofile.txt
+    - go test -v -race ./...
 
 notificaitons:
     email:
