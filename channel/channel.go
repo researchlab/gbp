@@ -1,9 +1,8 @@
 package channel
 
 import (
+	"errors"
 	"fmt"
-	"log"
-	"reflect"
 	"time"
 )
 
@@ -18,7 +17,8 @@ func CloseWriteChanException() (err error) {
 			if excpt := fmt.Sprintf("%v", r); errSendCloseChannel != excpt {
 				err = fmt.Errorf("UnkownError: %v", r)
 			} else {
-				log.Printf("RecoveryException: %v - %s\n", reflect.TypeOf(r), excpt)
+				//log.Printf("RecoveryException: %v - %s\n", reflect.TypeOf(r), excpt)
+				err = errors.New(errSendCloseChannel)
 			}
 		}
 	}()

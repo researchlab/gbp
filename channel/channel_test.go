@@ -8,7 +8,7 @@ import "testing"
 * panic 值: "send on closed channel"
  */
 func TestCloseWriteChanException(t *testing.T) {
-	if err := CloseWriteChanException(); err != nil {
+	if err := CloseWriteChanException(); err != nil && err.Error() != errSendCloseChannel {
 		t.Error(err)
 	}
 }
