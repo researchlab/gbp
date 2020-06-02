@@ -1,7 +1,11 @@
 # golang concurrency  patterns
+|concurrency  patterns |
+|-|
+[0-1-sync-mutex](#0-1)
+[0-2-no-lock](#0-2)
+[0-3-select-timeout](#0-3)
 
-
-#### 0-1-sync-mutex 
+#### <span id="0-1">0-1-sync-mutex</span>
 ```
 ➜  go run 0-1-sync-mutex.go
 id: 4  ticket: 9
@@ -43,7 +47,7 @@ func sell(i int) {
 ```
 > 利用全局的sync.Mutex 对零界变量total_tickets 进行锁操作, 使并发下的total_tickets 变成串行操作，保证数据操作的准确性;
 
-#### 0-2-no-lock  
+#### <span id="0-2">0-2-no-lock</span> 
 ```
 ➜  go run 0-2-no-lock.go
 生成3张票，卖出2张，至少剩余一张
@@ -113,7 +117,7 @@ func ticketer() {
 
 ![no lock pattern](./imgs/nolock.png)
 
-#### 0-3-select-timeout 
+#### <span id="0-3">0-3-select-timeout</span>
 
 ```
 errChan := make(chan error)
