@@ -34,24 +34,30 @@ func main() {
 	fmt.Println(TotalTickets(), "done")
 }
 
+// total tickets
 var total_tickets int32 = 10
+
+// global mutex
 var mutex = &sync.Mutex{}
 
 func SellTickets(wg *sync.WaitGroup, i int) {
-
+	defer wg.Done()
 	for total_tickets > 0 {
-
-		mutex.Lock()
-		// 如果有票就卖
-		if total_tickets > 0 {
-			time.Sleep(time.Duration(rand.Intn(5)) * time.Millisecond)
-			// 卖一张票
-			total_tickets--
-			fmt.Println("id:", i, " ticket:", total_tickets)
-		}
-		mutex.Unlock()
+		sell(i)
 	}
-	wg.Done()
+}
+
+func sell(i int) {
+	mutex.Lock()
+	defer mutex.Unlock()
+
+	// 如果有票就卖
+	if total_tickets > 0 {
+		time.Sleep(time.Duration(rand.Intn(5)) * time.Millisecond)
+		// 卖一张票
+		total_tickets--
+		fmt.Println("id:", i, " ticket:", total_tickets)
+	}
 }
 
 func TotalTickets() int32 {
