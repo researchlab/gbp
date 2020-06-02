@@ -111,7 +111,7 @@ func ticketer() {
 
 模型
 
-![no lock concurrency model](./imgs/nolock.png)
+![no lock pattern](./imgs/nolock.png)
 
 #### 0-3-select-timeout 
 
