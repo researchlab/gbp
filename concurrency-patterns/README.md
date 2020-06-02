@@ -2,7 +2,7 @@
 |concurrency  patterns |
 |-|
 [0-1-sync-mutex](#0-1)
-[0-2-no-lock](#0-2)
+[0-2-lock-free](#0-2)
 [0-3-select-timeout](#0-3)
 
 #### <span id="0-1">0-1-sync-mutex</span>
@@ -47,9 +47,9 @@ func sell(i int) {
 ```
 > 利用全局的sync.Mutex 对零界变量total_tickets 进行锁操作, 使并发下的total_tickets 变成串行操作，保证数据操作的准确性;
 
-#### <span id="0-2">0-2-no-lock</span> 
+#### <span id="0-2">0-2-lock-free</span> 
 ```
-➜  go run 0-2-no-lock.go
+➜  go run 0-2-lock-free.go
 生成3张票，卖出2张，至少剩余一张
 Poper: 1  购票: 失败
 Poper: 0  购票: 失败
@@ -115,7 +115,7 @@ func ticketer() {
 
 模型
 
-![no lock pattern](./imgs/nolock.png)
+![lock free pattern](./imgs/lockfree.png)
 
 #### <span id="0-3">0-3-select-timeout</span>
 
