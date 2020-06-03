@@ -88,7 +88,7 @@ main.main()
 exit status 2
 ```
 ```
-func flush(data []byte) bytes.Buffer {
+func gzipFlush(data []byte) bytes.Buffer {
 	var b bytes.Buffer
 	w := gzip.NewWriter(&b)
 	defer w.Close()
