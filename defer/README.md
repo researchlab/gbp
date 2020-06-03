@@ -1,7 +1,8 @@
 # golang defer tips
 
-`A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns. Defer is commonly used to simplify functions that perform various clean-up actions.`
-> -- https://blog.golang.org/defer-panic-and-recover
+A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns. Defer is commonly used to simplify functions that perform various clean-up actions.
+> -- https://blog.golang.org/defer-panic-and-recover 
+
 > defer表达式将一个函数调用保存在列表中，当包裹defer的函数"返回"后，列表中的调用会被执行。defer通常用于清理收尾工作。
 
 #### 0-1-unamed-return
