@@ -1,8 +1,8 @@
 all: clean
-	go build -gcflags "-N -l" -ldflags=-compressdwarf=false -o channel_close.out channel_close.go
-	go tool objdump -s "main.main" channel_close.out > channel_close.S
+	go build -gcflags "-N -l" -ldflags=-compressdwarf=false -o 0-1-channel-close.out 0-1-channel-close.go
+	go tool objdump -s "main.main" 0-1-channel-close.out > 0-1-channel-close.S
 clean:
-	rm -rf channel_close.out channel_close.S
+	rm -rf 0-1-channel-close.out 0-1-channel-close.S
 
 default: test
 
