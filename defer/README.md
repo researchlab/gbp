@@ -135,3 +135,28 @@ func flush(data []byte) bytes.Buffer {
 }
 ```
 > 如果不使用defer, 只要在return之前 记得w.Close() 自然也不存在ioutil.ReadAll()读取不到EOF;
+
+#### 1-5-determined-at-declaration
+```
+func calc(index string, a, b int) int {
+    ret := a + b
+    fmt.Println(index, a, b, ret)
+    return ret
+}
+
+func main() {
+    a := 1
+    b := 2
+    defer calc("1", a, calc("10", a, b))
+    a = 0
+    defer calc("2", a, calc("20", a, b))
+    b = 1
+}
+```
+> defer的参数在声明时即被确定下来, defer calc("1", a, calc("10", a, b)) 的第3个参数会在调用runtime.deferproc时确定，并不会在延时调用时才会被计算。
+
+> defer 与 return 在一起的执行流程
+> > step 1 : 在defer表达式的地方，会调用runtime.deferproc(size int32, fn *funcval)保存延时调用，注意这里保存了延时调用的参数
+> > step 2 : 在return时，先将返回值保存起来
+> > step 3 : 按FILO顺序调用runtime.deferreturn，即延时调用
+> > step 4 : RET指令
