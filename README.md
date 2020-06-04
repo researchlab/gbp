@@ -11,7 +11,6 @@ Best Golang Practices (GBP™) along with the detailed samples.
 ├── detection
 ├── gin_test
 ├── news_spider
-├── personal_share
 ├── postform
 ├── redispool
 ├── reflectlab
