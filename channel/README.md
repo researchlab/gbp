@@ -1,12 +1,15 @@
 # golang channel tips 
 
 写入 关闭的channel
-> 测试表明当向关闭的channel中写入数据时会触发painc操作
+> 向关闭的channel中写入数据时会触发painc操作
+
 > panic 类型: runtime.plainError
+
 > panic 值: "send on closed channel"
 
 读取 关闭的channel
-> 当往关闭的channel中读数据时, 当读到第二个返回值为false时 就表示无数据输入了;
+> 往关闭的channel中读数据时, 当读到第二个返回值为false时 就表示已无数据;
+
 > v, ok := <- chan
 
 #### 0-1-channel-close
