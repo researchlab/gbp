@@ -76,6 +76,47 @@ func c() *int {
 ```
 > 函数c() 返回列表中也没有声明变量，与函数a()不同的是 函数c()返回的是地址引用值, 所以当return之后defer的清理操作修改的还是返回变量指向的地址空间中的值，所以最终返回变量的值也因为地址空间值被defer修改而改变;
 
+#### 0-4-compilation-analysis
+```
+func a() int {
+	var i int
+	defer func() {
+		i++
+	}()
+	return i
+}
+```
+编译成汇编指令
+```
+go build -gcflags "-N -l" -ldflags=-compressdwarf=false -o 0-4-compilation-analysis.out 0-4-compilation-analysis.go
+go tool objdump -s "main.a" 0-4-compilation-analysis.out >  0-4-compilation-analysis.S
+```
+> go tool objdump -s 参数"main.a" 表示指抓取namespace main 下a函数执行的汇编指令
+
+```
+  0-4-compilation-analysis.go:12	0x109d026		e805faf8ff		CALL runtime.deferprocStack(SB)		
+  0-4-compilation-analysis.go:12	0x109d02b		85c0			TESTL AX, AX				
+  0-4-compilation-analysis.go:12	0x109d02d		751c			JNE 0x109d04b				
+  0-4-compilation-analysis.go:12	0x109d02f		eb00			JMP 0x109d031				
+  0-4-compilation-analysis.go:15	0x109d031		488b442408		MOVQ 0x8(SP), AX			
+  0-4-compilation-analysis.go:15	0x109d036		4889442470		MOVQ AX, 0x70(SP)			
+  0-4-compilation-analysis.go:15	0x109d03b		90			NOPL					
+  0-4-compilation-analysis.go:15	0x109d03c		e84f02f9ff		CALL runtime.deferreturn(SB)		
+  0-4-compilation-analysis.go:15	0x109d041		488b6c2460		MOVQ 0x60(SP), BP			
+  0-4-compilation-analysis.go:15	0x109d046		4883c468		ADDQ $0x68, SP				
+  0-4-compilation-analysis.go:15	0x109d04a		c3			RET					
+  0-4-compilation-analysis.go:12	0x109d04b		90			NOPL					
+  0-4-compilation-analysis.go:12	0x109d04c		e83f02f9ff		CALL runtime.deferreturn(SB)		
+  0-4-compilation-analysis.go:12	0x109d051		488b6c2460		MOVQ 0x60(SP), BP			
+  0-4-compilation-analysis.go:12	0x109d056		4883c468		ADDQ $0x68, SP				
+  0-4-compilation-analysis.go:12	0x109d05a		c3			RET					
+  0-4-compilation-analysis.go:10	0x109d05b		e820c3fbff		CALL runtime.morestack_noctxt(SB)	
+  0-4-compilation-analysis.go:10	0x109d060		e96bffffff		JMP main.a(SB)				
+```
+> 上述0-4-compilation-analysis.go:12 是文件名:行号,  可以清晰的看到代码中的某一行对应的汇编指令集;
+> 0-4-compilation-analysis.go第12行defer func(){}  汇编指令集进行了CALL runtime.deferprocStack(SB)操作, 将defer 入栈;
+>  第15行调用CALL runtime.deferreturn(SB) 执行return ,紧接着回到第12行 执行之前入栈的defer 函数； 当前main.a()函数调用结束，打印 CALL runtime.morestack_noctxt(SB) 表示当前main.a()上下文栈中以全部出栈，即最后跳转到第10行;
+
 #### 1-1-unamed-return
 ```
 ➜  go run 1-1-unamed-return.go
