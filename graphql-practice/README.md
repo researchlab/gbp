@@ -26,3 +26,8 @@ GraphQL官网给出定义：GraphQL既是一种**用于API的查询语言** 也�
 
 - **对于数据模型的抽象是通过Type来描述的** ，如何定义Type？
 - **对于接口获取数据的逻辑是通过schema来描述的** ，如何定义schema？
+
+Reference 
+- [GraphiQL编辑器](http://graphql.org/swapi-graphql/)
+- [REST, GraphQL, gRPC 如何选型](https://zhuanlan.zhihu.com/p/44140864)
+- [GraphQL 最佳实践](https://graphql.cn/learn/best-practices/)
