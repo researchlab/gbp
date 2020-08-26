@@ -1,4 +1,5 @@
 **RESTFUL API**
+
 REST API的使用方式是，server定义一系列的接口，client调用自己需要的接口，获取目标数据进行整合。REST API开发中遇到的问题：
 - **扩展性** ，随着API的不断发展，REST API的接口会变得越来臃肿。
 - **无法按需获取** ，一个返回id, name, age, city, addr, email的接口，如果仅获取部分信息，如name, age，却必须返回接口的全部信息，然后从中提取自己需要的。坏处不仅会增加网络传输量，并且不便于client处理数据
