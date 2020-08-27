@@ -21,3 +21,5 @@ curl 带参数请求
 ➜ curl -XGET http://localhost:3000/graphql -d'{"query":"{job(id:3){id,company}}'                                    
 {"data":{"job":{"company":"Microsoft","id":3}}}
 ```
+
+- [Creating a Basic GraphQL API with Go](https://zupzup.org/go-example-graphql/)
