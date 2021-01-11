@@ -4,18 +4,4 @@
 
 Best Golang Practices (GBP™) along with the detailed samples.
 
-```
-├── channel
-├── concurrency
-├── consistent_hash
-├── detection
-├── gin_test
-├── news_spider
-├── postform
-├── redispool
-├── reflectlab
-├── setcookie
-├── sorts  #自定义排序实践
-├── sql
-└── weblab
-```
+
