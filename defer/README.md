@@ -201,3 +201,62 @@ func main() {
 > > step 2 : 在return时，先将返回值保存起来
 > > step 3 : 按FILO顺序调用runtime.deferreturn，即延时调用
 > > step 4 : RET指令
+
+#### 1-6,1-7 execution-sequence
+```
+func main() {
+	// defer 是针对 tfunc 返回的函数
+	defer tfunc("main10")()
+	go demo()
+	time.Sleep(3 * time.Second)
+	fmt.Println("main20")
+}
+
+
+func demo() {
+	defer trace("demo00")
+	fmt.Println("demo01")
+}
+
+func tfunc(msg string) func() {
+	fmt.Println("start ", msg)
+	return func() { fmt.Println("tfunc end") }
+}
+```
+
+output 
+```
+start  main10
+demo01
+enter  demo00
+main20
+tfunc end
+```
+
+defer 作用于tfunc返回的函数
+
+#### 1-8 panic 
+```
+func main() {
+	demo()
+}
+
+func demo() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("recover:", r)
+		}
+	}()
+	defer fmt.Println("demo")
+	panic("panic")
+	defer fmt.Println("finished")
+}
+```
+
+output 
+```
+demo
+recover: panic
+```
+
+defer在panic 之前执行, panic时，会先执行完已注册的defer 函数; recover会捕获panic;
