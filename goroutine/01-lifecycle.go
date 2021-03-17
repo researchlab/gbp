@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// 结论: 当父协程是main协程时，父协程退出，父协程下的所有子协程也会跟着退出；当父协程不是main协程时，父协程退出，父协程下的所有子协程并不会跟着退出（子协程直到自己的所有逻辑执行完或者是main协程结束才结束）
 func main() {
 	defer trace("main")()
 	go goroutine()
