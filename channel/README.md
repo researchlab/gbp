@@ -1,5 +1,18 @@
 # golang channel tips 
 
+1.向关闭的channel发送数据会panic
+2.重复关闭channel会导致panic
+3.从关闭的channel读数据不会panic,读出channel中已有的数据之后再读就是channel类似的默认值,比如chan int类型的channel关闭之后读取到的值为0
+4.当channel是nil的时候,无论是传入数据还是取出数据,都会永久的block
+5.所有的goroutines协程都处于休眠(阻塞)状态时会报错:"all goroutines are asleep - deadlock!"
+
+操作|nil channel | closed channel | not-closed non-nil channel
+---|------------|----------------|---------------------------
+close | panic | panic |成功 close
+写 `ch <-` | 一直阻塞|panic |阻塞或成功写入数据
+读 `<- ch` | 一直阻塞|读取对应类型零值|阻塞或成功读取数据
+
+
 写入 关闭的channel
 > 向关闭的channel中写入数据时会触发painc操作
 
