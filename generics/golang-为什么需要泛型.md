@@ -1,6 +1,7 @@
 # golang  为什么需要泛型
 
 > 本文转载出处：https://www.cnblogs.com/apocelipes/p/13832224.html
+
 > 作者：@apocelipes
 
 本文索引
