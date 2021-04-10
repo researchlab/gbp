@@ -42,7 +42,7 @@ func getEncoder() zapcore.Encoder {
 //Compress：是否压缩/归档旧文件
 func getLogWriter() zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
-		Filename:   "./test.log",
+		Filename:   "/tmp/test.log", // 这里可以是相对路径
 		MaxSize:    1,
 		MaxBackups: 5,
 		MaxAge:     30,
