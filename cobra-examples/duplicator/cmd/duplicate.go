@@ -21,6 +21,7 @@ import (
 )
 
 var fileExt string
+var dirName string
 
 // duplicateCmd represents the duplicate command
 var duplicateCmd = &cobra.Command{
@@ -54,5 +55,6 @@ func init() {
 
 	duplicateCmd.Flags().StringVarP(&fileExt, "extension", "e", "", "file extension is required")
 	duplicateCmd.MarkFlagRequired("extension")
+	duplicateCmd.PersistentFlags().StringVarP(&dirName, "dirname", "d", "copied_files", "dir to copie")
 
 }
