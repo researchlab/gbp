@@ -50,13 +50,13 @@ func init() {
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
 	// 持久命令,意思是rootCmd命令和其子命令都能够使用这个参数
-	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "verbose output")
-	// 本地命令,意思是只有rootCmd命令才能够使用该参数,如果其他命令设置了改参数则会报错
-	rootCmd.Flags().StringVarP(&Source, "source", "s", "", "Source directory to read from")
-	rootCmd.Flags().StringVarP(&Region, "region", "r", "", "AWS region (required)")
-	// 标记 region 是必须的,如果没有该参数,则会报错
-	rootCmd.MarkFlagRequired("region")
-
-	// 其他命令的参数
-	addCmd.Flags().Int32VarP(&Num, "num", "n", 0, "Number")
+	//	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "verbose output")
+	//	// 本地命令,意思是只有rootCmd命令才能够使用该参数,如果其他命令设置了改参数则会报错
+	//	rootCmd.Flags().StringVarP(&Source, "source", "s", "", "Source directory to read from")
+	//	rootCmd.Flags().StringVarP(&Region, "region", "r", "", "AWS region (required)")
+	//	// 标记 region 是必须的,如果没有该参数,则会报错
+	//	rootCmd.MarkFlagRequired("region")
+	//
+	//	// 其他命令的参数
+	//	addCmd.Flags().Int32VarP(&Num, "num", "n", 0, "Number")
 }
