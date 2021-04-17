@@ -14,7 +14,7 @@ Best Golang Practices along with the detailed samples.
 - [defer](defer)
 - [generics](generics)
 - [goroutine](goroutine)
-- [reflect](reflectlab)
+- [reflect](reflect)
 - panic
 - recover
 - mutex
