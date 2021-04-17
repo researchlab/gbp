@@ -8,7 +8,7 @@ Best Golang Practices along with the detailed samples.
 
 ## 语言特性
 
-- [channel](channel/README.md)
+- [channel](channel)
 - [concurrency](concurrency-patterns/README.md)
 - [copy](copy/README.md)
 - [defer](defer/README.md)
