@@ -9,12 +9,12 @@ Best Golang Practices along with the detailed samples.
 ## 语言特性
 
 - [channel](channel)
-- [concurrency](concurrency-patterns/README.md)
-- [copy](copy/README.md)
-- [defer](defer/README.md)
-- [generics](generics/README.md)
-- [goroutine](goroutine/README.md)
-- [reflect](reflectlab/README.md)
+- [concurrency](concurrency-patterns)
+- [copy](copy)
+- [defer](defer)
+- [generics](generics)
+- [goroutine](goroutine)
+- [reflect](reflectlab)
 - panic
 - recover
 - mutex
@@ -23,8 +23,8 @@ Best Golang Practices along with the detailed samples.
 
 ## 中间件实践
 
-- [rabbitmq](rabbitmq/README.md)
-- [redis](redis/README.md)
+- [rabbitmq](rabbitmq)
+- [redis](redis)
 - etcd
 - mysql
 - nsq
