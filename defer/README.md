@@ -114,8 +114,12 @@ go tool objdump -s "main.a" 0-4-compilation-analysis.out >  0-4-compilation-anal
   0-4-compilation-analysis.go:10	0x109d060		e96bffffff		JMP main.a(SB)				
 ```
 > 上述0-4-compilation-analysis.go:12 是文件名:行号,  可以清晰的看到代码中的某一行对应的汇编指令集;
+
 > 0-4-compilation-analysis.go第12行defer func(){}  汇编指令集进行了CALL runtime.deferprocStack(SB)操作, 将defer 入栈;
->  第15行调用CALL runtime.deferreturn(SB) 执行return ,紧接着回到第12行 执行之前入栈的defer 函数； 当前main.a()函数调用结束，打印 CALL runtime.morestack_noctxt(SB) 表示当前main.a()上下文栈中以全部出栈，即最后跳转到第10行;
+
+> 第15行调用CALL runtime.deferreturn(SB) 执行return ,紧接着回到第12行 执行之前入栈的defer 函数； 
+
+> 当前main.a()函数调用结束，打印 CALL runtime.morestack_noctxt(SB) 表示当前main.a()上下文栈中以全部出栈，即最后跳转到第10行;
 
 #### 1-1-unamed-return
 ```
