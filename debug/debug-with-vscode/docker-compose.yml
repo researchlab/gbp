@@ -1,0 +1,17 @@
+version: '2'
+services:
+  redis:
+    image: redis:6.0-rc-alpine
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+  myapp:
+    build: .
+    entrypoint: dlv debug /opt/go/src/local/myorg/myapp -l 0.0.0.0:2345 --headless=true --api-version=2 --log=true -- server
+    volumes:
+      - .:/opt/go/src/local/myorg/myapp
+    ports:
+      - "2345:2345"
+    expose:
+      - "2345"
