@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  debug:
+    build:
+      dockerfile: docker/debug/Dockerfile
+      context: ../../
+    ports:
+      - 2345:2345
+    command: "--listen=:2345 --headless=true --log=true --log-output=debugger,debuglineerr,gdbwire,lldbout,rpc --accept-multiclient --api-version=2 exec ./app"
