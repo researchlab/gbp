@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}",
+            "env": {},
+            "args": []
+        },
+        {
+            "name": "Remote debug",
+            "type": "go",
+            "request": "launch",
+            "mode": "remote",
+            "program": "${workspaceRoot}",
+            "env": {},
+            "args": [],
+            "remotePath": "/go/src/github.com/travishaagen/go-delve-remote-debug-example",
+            "port": 2345, // Delve port
+            "host": "localhost" // Delve host or IP address
+        }
+    ]
+}

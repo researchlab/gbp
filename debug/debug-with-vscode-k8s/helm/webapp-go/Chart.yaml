@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Go web app with remote Delve debugging.
+name: webapp-go
+version: 0.1.0
