@@ -29,5 +29,5 @@ func httpGet(w http.ResponseWriter, r *http.Request) {
 func main() {
 	go workForever()
 	http.HandleFunc("/get", httpGet)
-	http.ListenAndServe("localhost:8000", nil)
+	http.ListenAndServe(":8000", nil)
 }
