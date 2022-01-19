@@ -1,20 +1,45 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"sync"
 	"time"
 
 	"github.com/streadway/amqp"
 )
 
+type C struct {
+	DialUrl string
+}
+
+var c = C{}
+
+/*
+.env.json
+{
+	"DialUrl":"amqp://user:pwd@ip:5672/"
+}
+*/
+func init() {
+	fs, err := os.ReadFile(".env.json")
+	if err != nil {
+		panic(err)
+	}
+	err = json.Unmarshal(fs, &c)
+	if err != nil {
+		panic(err)
+	}
+}
+
 var count int
 var mutex sync.Mutex
 
 func main() {
 	fmt.Println(time.Now())
-	conn, err := amqp.Dial("amqp://admin:cl0udsuit1@172.118.59.90:5672/")
+	conn, err := amqp.Dial(c.DialUrl)
 	if err != nil {
 		log.Fatal("dial:", err)
 	}
@@ -41,6 +66,7 @@ func main() {
 		time.Sleep(time.Nanosecond)
 	}
 }
+
 func testNotCloseConn(conn *amqp.Connection, done chan bool) {
 	mutex.Lock()
 	channel, err := conn.Channel()
