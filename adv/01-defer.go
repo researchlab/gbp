@@ -20,9 +20,9 @@ func defer_call() {
 }
 
 /**
-考点：defer执行顺序
+defer执行顺序
 
-解答： defer 是后进先出。 panic 需要等defer 结束后才会向上传递。
+defer 是后进先出。 panic 需要等defer 结束后才会向上传递。
 出现panic恐慌时候，会先按照defer的后入先出的顺序执行，最后才会执行panic。
 
 output:
