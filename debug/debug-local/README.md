@@ -37,6 +37,8 @@ replace github.com/researchlab/gbp/debug/debug-local/utils  => ./utils
 如此之后 还需要在utils 目录下执行 go mod  生存一条go.mod 文件, go mod xxx 这个xxx 随便起
 go mod init github.com/researchlab/gbp/debug/local/utils
 
+>> 说明 其实上面go mod init 后面不需要写路径， 直接在项目根目录 和需要创建go.mod 的utils 目录下执行一下go mod init 即可
+
 # 此时项目目录
 tree -L 3
 .
@@ -117,5 +119,41 @@ Breakpoint 2 set at 0x10d10b8 for main.main() ./main.go:12
 (dlv) c
 2400
 Process 53433 has exited with status 0
+(dlv)
+```
+
+
+调试测试包
+
+```shell
+$ cd utils  # 进入utils目录
+$ dlv test # 开始调试utils下的测试包
+Type 'help' for list of commands.
+(dlv) bp # 打印出当前的端点
+Breakpoint runtime-fatal-throw at 0x103c3a0 for runtime.fatalthrow() /usr/local/go/src/runtime/panic.go:1162 (0)
+Breakpoint unrecovered-panic at 0x103c420 for runtime.fatalpanic() /usr/local/go/src/runtime/panic.go:1189 (0)
+    print runtime.curg._panic.arg
+(dlv) funcs test.Test*
+(dlv) b TestAdd # 在TestAdd方法上打一个端点
+Breakpoint 1 set at 0x1166273 for test/utils.TestAdd() ./utils/util_test.go:5
+(dlv) bp
+Breakpoint runtime-fatal-throw at 0x103c3a0 for runtime.fatalthrow() /usr/local/go/src/runtime/panic.go:1162 (0)
+Breakpoint unrecovered-panic at 0x103c420 for runtime.fatalpanic() /usr/local/go/src/runtime/panic.go:1189 (0)
+    print runtime.curg._panic.arg
+Breakpoint 1 at 0x1166273 for github.com/researchlab/gbp/debug/local/utils.TestAdd() ./utils/util_test.go:5 (0)
+(dlv) c # continue 继续执行
+> util.TestAdd() ./utils/util_test.go:5 (hits goroutine(4):1 total:1) (PC: 0x1166273)
+     1: package utils
+     2:
+     3: import "testing"
+     4:
+=>   5: func TestAdd(t *testing.T) {
+     6:     if Add(100, 200) != 300 {
+     7:         t.Error("100 + 200 != 300")
+     8:     }
+     9: }
+(dlv) c
+PASS
+Process 52711 has exited with status 0
 (dlv)
 ```
