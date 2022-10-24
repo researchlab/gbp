@@ -1,0 +1,127 @@
+{
+    "requestId": "dac17949-5af3-4daa-9906-47ff54fd67d2",
+    "data": [
+        {
+            "id": "558adfc5-610d-4ed3-a02c-ad14bef63a1c",
+            "name": "test0",
+            "description": "",
+            "parentId": "root",
+            "parentIds": "root",
+            "isDeleted": 0,
+            "creator": "9de0a582-0f01-4a19-b9a5-d9a6452295c3",
+            "createTime": "2022-05-23 10:58:11",
+            "updateTime": "2022-06-21 10:43:47",
+            "aggregation": {
+                "availableZoneIds": [
+                    "0aaf9c71-e651-48c9-989b-a6cfcb02125c",
+                    "21942fcb-a7f3-4fe4-977f-01f0e14cfb5f"
+                ],
+                "parentVDCAvailableZoneIds": [],
+                "projects": [
+                    {
+                        "id": "cd2203a5-0efc-4e87-8c1e-6d73260d78f3",
+                        "name": "test"
+                    }
+                ]
+            },
+            "subVdcs": [
+                {
+                    "id": "4c13ed69-3abd-4a15-92f7-27b139756f05",
+                    "name": "test2",
+                    "description": "",
+                    "parentId": "558adfc5-610d-4ed3-a02c-ad14bef63a1c",
+                    "parentIds": "root~558adfc5-610d-4ed3-a02c-ad14bef63a1c",
+                    "isDeleted": 0,
+                    "creator": "9de0a582-0f01-4a19-b9a5-d9a6452295c3",
+                    "createTime": "2022-05-23 14:55:15",
+                    "updateTime": "2022-05-23 14:55:15",
+                    "aggregation": {
+                        "availableZoneIds": [
+                            "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                        ],
+                        "parentVDCAvailableZoneIds": [
+                            "0aaf9c71-e651-48c9-989b-a6cfcb02125c",
+                            "21942fcb-a7f3-4fe4-977f-01f0e14cfb5f"
+                        ],
+                        "projects": []
+                    },
+                    "subVdcs": [
+                        {
+                            "id": "6355358d-dd26-4781-bd76-2430a307d87d",
+                            "name": "a2",
+                            "description": "",
+                            "parentId": "4c13ed69-3abd-4a15-92f7-27b139756f05",
+                            "parentIds": "root~558adfc5-610d-4ed3-a02c-ad14bef63a1c~4c13ed69-3abd-4a15-92f7-27b139756f05",
+                            "isDeleted": 0,
+                            "creator": "9de0a582-0f01-4a19-b9a5-d9a6452295c3",
+                            "createTime": "2022-05-31 13:43:09",
+                            "updateTime": "2022-06-16 13:33:23",
+                            "aggregation": {
+                                "availableZoneIds": [
+                                    "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                ],
+                                "parentVDCAvailableZoneIds": [
+                                    "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                ],
+                                "projects": []
+                            },
+                            "subVdcs": [
+                                {
+                                    "id": "d6e05c80-cde6-4f54-8500-4b1b4d25cd4c",
+                                    "name": "a22",
+                                    "description": "",
+                                    "parentId": "6355358d-dd26-4781-bd76-2430a307d87d",
+                                    "parentIds": "root~558adfc5-610d-4ed3-a02c-ad14bef63a1c~4c13ed69-3abd-4a15-92f7-27b139756f05~6355358d-dd26-4781-bd76-2430a307d87d",
+                                    "isDeleted": 0,
+                                    "creator": "9de0a582-0f01-4a19-b9a5-d9a6452295c3",
+                                    "createTime": "2022-05-31 13:43:42",
+                                    "updateTime": "2022-06-16 13:33:28",
+                                    "aggregation": {
+                                        "availableZoneIds": [
+                                            "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                        ],
+                                        "parentVDCAvailableZoneIds": [
+                                            "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                        ],
+                                        "projects": []
+                                    },
+                                    "subVdcs": [
+                                        {
+                                            "id": "c02c958d-fff0-48cc-8b2d-32ae740e9deb",
+                                            "name": "a222",
+                                            "description": "",
+                                            "parentId": "d6e05c80-cde6-4f54-8500-4b1b4d25cd4c",
+                                            "parentIds": "root~558adfc5-610d-4ed3-a02c-ad14bef63a1c~4c13ed69-3abd-4a15-92f7-27b139756f05~6355358d-dd26-4781-bd76-2430a307d87d~d6e05c80-cde6-4f54-8500-4b1b4d25cd4c",
+                                            "isDeleted": 0,
+                                            "creator": "9de0a582-0f01-4a19-b9a5-d9a6452295c3",
+                                            "createTime": "2022-05-31 13:45:15",
+                                            "updateTime": "2022-06-16 13:33:33",
+                                            "aggregation": {
+                                                "availableZoneIds": [
+                                                    "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                                ],
+                                                "parentVDCAvailableZoneIds": [
+                                                    "0aaf9c71-e651-48c9-989b-a6cfcb02125c"
+                                                ],
+                                                "projects": [
+                                                    {
+                                                        "id": "c8842ff6-cd66-4a48-ba76-e383fcdd7baa",
+                                                        "name": "test-lvw"
+                                                    }
+                                                ]
+                                            },
+                                            "subVdcs": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "time": "2022-06-22 09:07:07",
+    "service": "identity",
+    "node": "178.108.96.30"
+}

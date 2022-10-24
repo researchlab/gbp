@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/researchlab/gbp/debug/debug-web/utils"
+	"github.com/researchlab/gbp/debug/debug-web/pkg"
 )
 
 func main() {
-	http.HandleFunc("/hello", utils.Ack)
+	http.HandleFunc("/hello", pkg.Ack)
 	fmt.Println("service start at :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
