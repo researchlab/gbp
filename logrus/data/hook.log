@@ -1,0 +1,25 @@
+[info] 2022-11-10 18:05:21.055 /Users/lihong/workbench/dev/src/github.com/sirupsen/logrus/logger.go:226 main start
+[info] 2022-11-10 18:05:42.054 /Users/lihong/workbench/dev/src/github.com/sirupsen/logrus/logger.go:226 main start
+[info] 2022-11-10 18:06:18.010 /Users/lihong/workbench/dev/src/github.com/sirupsen/logrus/logger.go:226 main start
+[info] 2022-11-10 18:08:32.252 /Users/lihong/workbench/dev/src/github.com/sirupsen/logrus/logger.go:226 main start
+[info] 2022-11-10 18:08:32.252 /Users/lihong/workbench/dev/src/github.com/sirupsen/logrus/logger.go:226 Aoo test
+[info] 2022-11-10 18:08:32.252 /Users/lihong/workbench/dev/src/github.com/researchlab/gbp/logrus/hook/pkg/a/a.go:9 ALog test
+{
+  "level": "info",
+  "msg": "main start",
+  "time": "2022-11-10 18:19:57"
+}
+{
+  "level": "info",
+  "msg": "Aoo test",
+  "time": "2022-11-10 18:19:57"
+}
+{
+  "key": "aLog",
+  "level": "info",
+  "msg": "ALog test",
+  "time": "2022-11-10 18:19:57"
+}
+{"level":"info","msg":"main start","time":"2022-11-10 18:20:38"}
+{"level":"info","msg":"Aoo test","time":"2022-11-10 18:20:38"}
+{"key":"aLog","level":"info","msg":"ALog test","time":"2022-11-10 18:20:38"}
