@@ -1,6 +1,3 @@
-Go程序可以使用embed包嵌入静态文件, 打包时也会把嵌入的目录一起打包到二进制文件中, 执行时就不需要在提供嵌入的目录了
-
-```golang
 package main
 
 import (
@@ -12,6 +9,7 @@ import (
 )
 
 // content持有服务器static目录下的所有文件
+//
 //go:embed static/*
 var content embed.FS
 
@@ -40,4 +38,3 @@ func main() {
 		fmt.Printf("%q: %s", e.Name(), body)
 	}
 }
-```
