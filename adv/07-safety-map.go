@@ -6,6 +6,12 @@ import (
 	"time"
 )
 
+// key必须支持==和!=比较，才能用作map的key。
+
+// 因此切片slice，函数类型function，集合map，不能用作map的key
+
+// map不是并发安全的，并发读写要加锁
+
 // 通过匿名结构体声明一个变量counter, 变量中包含了map 和 sync.RWMutex
 var counter = struct {
 	sync.RWMutex
