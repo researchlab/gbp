@@ -19,9 +19,10 @@ var c = C{}
 
 /*
 .env.json
-{
-	"DialUrl":"amqp://user:pwd@ip:5672/"
-}
+
+	{
+		"DialUrl":"amqp://user:pwd@ip:5672/"
+	}
 */
 func init() {
 	fs, err := os.ReadFile(".env.json")
@@ -96,7 +97,7 @@ func testNotCloseConn(conn *amqp.Connection, done chan bool) {
 
 func testCloseConn(done chan bool) {
 	mutex.Lock()
-	conn, err := amqp.Dial("amqp://admin:cl0udsuit1@172.118.59.90:5672/")
+	conn, err := amqp.Dial(c.DialUrl)
 	count++
 	if err != nil {
 		fmt.Println("*****", count, "****")
